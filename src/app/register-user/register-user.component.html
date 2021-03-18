@@ -1,0 +1,48 @@
+<form
+  [formGroup]="registerUserForm"
+  (ngSubmit)="onSubmit()"
+>
+  <span>
+    <label for="nome">
+      Nome: *
+    </label>
+    <input
+      id="nome"
+      type="text"
+      formControlName="nome"
+      maxlength="50"
+      required
+    >
+  </span>
+
+  <span>
+    <label for="email">
+      E-mail: *
+    </label>
+    <input
+      id="email"
+      type="text"
+      formControlName="email"
+      maxlength="50"
+      required
+    >
+  </span>
+
+  <span>
+    <label for="passwords">
+      Senha:*
+    </label>
+    <input
+      id="passwords"
+      type="password"
+      formControlName="passwords"
+      maxlength="50"
+      required
+    >
+  </span>
+
+  <input
+    type="submit"
+    value="Cadastrar"
+  >
+</form>
