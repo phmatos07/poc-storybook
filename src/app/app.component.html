@@ -1,5 +1,12 @@
 <section>
   <h1>{{ title }}</h1>
 
-  <app-register-user (dataChanges)="dataChanges($event)"></app-register-user>
+  <app-register-user (dataChanges)="registerUser = $event"></app-register-user>
+
+  <ul *ngIf="registerUser">
+    <li><strong>Nome: </strong>{{ registerUser?.nome }}</li>
+    <li><strong>E-mail: </strong>{{ registerUser?.email }}</li>
+    <li><strong>password: </strong>{{ registerUser?.password }}</li>
+  </ul>
+
 </section>

@@ -7,10 +7,6 @@ import { RegisterUserInterface } from './model/register-user.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   title = 'POC-Storybook - Formulário de Cadastro';
-
-  dataChanges(values: RegisterUserInterface): void {
-    console.log(values);
-  }
+  registerUser: RegisterUserInterface | null = null;
 }
