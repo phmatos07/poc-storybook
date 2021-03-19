@@ -2,7 +2,7 @@
   [formGroup]="registerUserForm"
   (ngSubmit)="onSubmit()"
 >
-  <span>
+  <div class="input">
     <label for="nome">
       Nome: *
     </label>
@@ -13,9 +13,10 @@
       maxlength="50"
       required
     >
-  </span>
+    <span class="alert">{{ getAlert('nome', nome) }}</span>
+  </div>
 
-  <span>
+  <div class="input">
     <label for="email">
       E-mail: *
     </label>
@@ -26,20 +27,22 @@
       maxlength="50"
       required
     >
-  </span>
+    <span class="alert">{{ getAlert('email', email) }}</span>
+  </div>
 
-  <span>
-    <label for="passwords">
+  <div class="input">
+    <label for="password">
       Senha:*
     </label>
     <input
-      id="passwords"
+      id="password"
       type="password"
-      formControlName="passwords"
+      formControlName="password"
       maxlength="50"
       required
     >
-  </span>
+    <span class="alert">{{ getAlert('password', password) }}</span>
+  </div>
 
   <input
     type="submit"
