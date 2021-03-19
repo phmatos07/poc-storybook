@@ -2,7 +2,7 @@
   [formGroup]="registerUserForm"
   (ngSubmit)="onSubmit()"
 >
-  <div class="input">
+  <div class="input-label">
     <label for="nome">
       Nome: *
     </label>
@@ -16,7 +16,7 @@
     <span class="alert">{{ getAlert('nome', nome) }}</span>
   </div>
 
-  <div class="input">
+  <div class="input-label">
     <label for="email">
       E-mail: *
     </label>
@@ -30,7 +30,7 @@
     <span class="alert">{{ getAlert('email', email) }}</span>
   </div>
 
-  <div class="input">
+  <div class="input-label">
     <label for="password">
       Senha:*
     </label>
@@ -45,7 +45,16 @@
   </div>
 
   <input
+    class="input-submit"
     type="submit"
     value="Cadastrar"
   >
+  <span
+    *ngIf="isSubmit"
+    class="feedback-message"
+    [class.feedback-message-error]="registerUserForm.invalid"
+    [class.feedback-message-success]="registerUserForm.valid"
+  >
+    {{ feedbackMessage }}
+  </span>
 </form>
