@@ -52,16 +52,16 @@ export class RegisterUserComponent implements OnInit, OnDestroy {
           email: this.email.value,
           password: this.password.value
         });
-        this.feedbackMessage = 'Cadastro realizado com sucesso!'
+        this.feedbackMessage = 'Cadastro realizado com sucesso!';
         return;
       }
 
-      this.feedbackMessage = 'Preencha o formulário para receber todos os dados!'
+      this.feedbackMessage = 'Preencha o formulário para receber todos os dados!';
       throw new Error(this.feedbackMessage);
 
     } catch (error) {
       console.group('FORMULÁRIO DE CADASTRO');
-      console.error(error)
+      console.error(error);
       console.log({
         nome: this.nome.value,
         email: this.email.value,
