@@ -1,5 +1,5 @@
 import { moduleMetadata } from '@storybook/angular';
-import { Meta } from '@storybook/angular/types-6-0';
+import { Meta, Story } from '@storybook/angular/types-6-0';
 import { RegisterUserComponent } from './register-user.component';
 import { RegisterUserModule } from './register-user.module';
 
@@ -19,14 +19,22 @@ export default {
         { name: 'Background Black', value: '#000000' },
       ],
     },
-  },
+  }
 } as Meta;
 
-export const REGISTER_USER = () => ({
+const TEMPLATE: Story<RegisterUserComponent> = (args) => ({
   component: RegisterUserComponent,
-  props: {
-    label: 'Button',
-  },
+  props: args,
 });
-REGISTER_USER.storyName = '1º História';
 
+export const PRIMARY = TEMPLATE.bind({});
+PRIMARY.args = {
+  formSize: '100%',
+  submitSize: '100px',
+};
+PRIMARY.argTypes = {
+  labelColor: { control: 'color' },
+  inputBorderColor: { control: 'color' },
+  submitBackgroundColor: { control: 'color' }
+};
+PRIMARY.storyName = '2º História';

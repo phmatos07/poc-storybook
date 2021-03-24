@@ -106,7 +106,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-e72533b0953851e334836b5d7fb8cd88",
+            "id": "component-AppComponent-9858f670bb55f03b7715803f403b6994",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -126,53 +126,38 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "registerUser",
+                    "defaultValue": "null",
+                    "type": "RegisterUserInterface | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
                     "name": "title",
                     "defaultValue": "'POC-Storybook - Formulário de Cadastro'",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 10
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "dataChanges",
-                    "args": [
-                        {
-                            "name": "values",
-                            "type": "RegisterUserInterface"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 13,
-                    "jsdoctags": [
-                        {
-                            "name": "values",
-                            "type": "RegisterUserInterface",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RegisterUserInterface } from './model/register-user.interface';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n\r\n  title = 'POC-Storybook - Formulário de Cadastro';\r\n\r\n  dataChanges(values: RegisterUserInterface): void {\r\n    console.log(values);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RegisterUserInterface } from './model/register-user.interface';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'POC-Storybook - Formulário de Cadastro';\r\n  registerUser: RegisterUserInterface | null = null;\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$primary-color: #056779;\r\n\r\nsection {\r\n  padding: {\r\n    right: 20px;\r\n    left: 20px;\r\n  };\r\n}\r\n\r\nh1 {\r\n  font-family: Calibri, Verdana;\r\n  color: $primary-color;\r\n}\r\n",
+                    "data": "$primary-color: #056779;\r\n$ul-background-color: #e4e4e4;\r\n\r\nsection {\r\n  display: block;\r\n  padding: {\r\n    right: 20px;\r\n    left: 20px;\r\n  };\r\n  font-family: Calibri, Verdana;\r\n}\r\n\r\nh1 {\r\n  color: $primary-color;\r\n}\r\n\r\nul {\r\n  display: block;\r\n  width: 50%;\r\n  height: auto;\r\n  margin-top: 20px;\r\n  padding: 20px;\r\n  color: $primary-color;\r\n  background-color: $ul-background-color;\r\n  border: 1px solid $primary-color;\r\n  border-radius: 5px;\r\n\r\n  li {\r\n    margin-left: 10px;\r\n  }\r\n}\r\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<section>\n  <h1>{{ title }}</h1>\n\n  <app-register-user (dataChanges)=\"dataChanges($event)\"></app-register-user>\n</section>\n"
+            "templateData": "<section>\n  <h1>{{ title }}</h1>\n\n  <app-register-user (dataChanges)=\"registerUser = $event\"></app-register-user>\n\n  <ul *ngIf=\"registerUser\">\n    <li><strong>Nome: </strong>{{ registerUser?.nome }}</li>\n    <li><strong>E-mail: </strong>{{ registerUser?.email }}</li>\n    <li><strong>password: </strong>{{ registerUser?.password }}</li>\n  </ul>\n\n</section>\n"
         },
         {
             "name": "ButtonComponent",
@@ -381,7 +366,7 @@
         },
         {
             "name": "RegisterUserComponent",
-            "id": "component-RegisterUserComponent-2537c5a8c33077016a4890ff7a15585e",
+            "id": "component-RegisterUserComponent-0d48e24b88ae33c541a30962d5f11c7e",
             "file": "src/app/register-user/register-user.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -397,12 +382,44 @@
                 "./register-user.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "formSize",
+                    "defaultValue": "'100%'",
+                    "line": 17
+                },
+                {
+                    "name": "inputBorderColor",
+                    "defaultValue": "'#056779'",
+                    "line": 23
+                },
+                {
+                    "name": "labelColor",
+                    "defaultValue": "'#056779'",
+                    "line": 20
+                },
+                {
+                    "name": "submitBackgroundColor",
+                    "defaultValue": "'#056779'",
+                    "line": 26
+                },
+                {
+                    "name": "submitSize",
+                    "defaultValue": "'100px'",
+                    "line": 29
+                }
+            ],
             "outputsClass": [
                 {
                     "name": "dataChanges",
                     "defaultValue": "new EventEmitter<RegisterUserInterface>()",
-                    "line": 17,
+                    "line": 35,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 32,
                     "type": "EventEmitter"
                 }
             ],
@@ -412,7 +429,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 21
+                    "line": 39
                 },
                 {
                     "name": "isSubmit",
@@ -420,7 +437,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 38
                 },
                 {
                     "name": "registerUserForm",
@@ -428,7 +445,7 @@
                     "type": "AbstractControl | null",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 37
                 },
                 {
                     "name": "subscription",
@@ -436,7 +453,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 40,
                     "modifierKind": [
                         112
                     ]
@@ -458,21 +475,49 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 62,
+                    "description": "",
                     "jsdoctags": [
                         {
-                            "name": "inputName",
+                            "name": {
+                                "pos": 1687,
+                                "end": 1696,
+                                "flags": 0,
+                                "escapedText": "inputName"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 1681,
+                                "end": 1686,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
                         },
                         {
-                            "name": "control",
+                            "name": {
+                                "pos": 1710,
+                                "end": 1717,
+                                "flags": 0,
+                                "escapedText": "control"
+                            },
                             "type": "AbstractControl",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 1704,
+                                "end": 1709,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "tagName": {
+                                "pos": 1725,
+                                "end": 1732,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": ""
                         }
                     ]
                 },
@@ -482,7 +527,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33
+                    "line": 51
                 },
                 {
                     "name": "ngOnInit",
@@ -490,7 +535,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28
+                    "line": 46
                 },
                 {
                     "name": "onSubmit",
@@ -498,7 +543,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46
+                    "line": 71
                 },
                 {
                     "name": "registerUser",
@@ -506,7 +551,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 99,
                     "modifierKind": [
                         112
                     ]
@@ -517,7 +562,7 @@
                     "optional": false,
                     "returnType": "Subscription",
                     "typeParameters": [],
-                    "line": 82,
+                    "line": 107,
                     "modifierKind": [
                         112
                     ]
@@ -528,11 +573,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';\r\nimport { AbstractControl, FormBuilder, Validators } from '@angular/forms';\r\nimport { Subscription } from 'rxjs';\r\nimport { RegisterUserInterface } from './../model/register-user.interface';\r\nimport { ALERT_MESSAGES_CONST } from './model/alert-messages.const';\r\nimport { AlertMessagesInterface } from './model/alert-messages.model';\r\nimport { ValidationTypeEnum } from './model/message-type.enum';\r\n\r\n@Component({\r\n  selector: 'app-register-user',\r\n  templateUrl: './register-user.component.html',\r\n  styleUrls: ['./register-user.component.scss']\r\n})\r\nexport class RegisterUserComponent implements OnInit, OnDestroy {\r\n\r\n  @Output()\r\n  dataChanges = new EventEmitter<RegisterUserInterface>();\r\n\r\n  registerUserForm: AbstractControl | null = null;\r\n  isSubmit = false;\r\n  feedbackMessage?: string;\r\n  private subscription = new Subscription();\r\n\r\n  constructor(\r\n    private formBuilder: FormBuilder\r\n  ) { }\r\n\r\n  ngOnInit() {\r\n    this.registerUser();\r\n    this.subscription.add(this.resetIsSubmit());\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.subscription.unsubscribe();\r\n  }\r\n\r\n  getAlert(inputName: string, control: AbstractControl): string {\r\n    const ALERT_MESSAGE = ALERT_MESSAGES_CONST.find((data: AlertMessagesInterface) => (\r\n      data.inputName === inputName &&\r\n      control.touched &&\r\n      control?.errors?.hasOwnProperty(ValidationTypeEnum.REQUIRED)\r\n    ));\r\n    return ALERT_MESSAGE?.message || '';\r\n  }\r\n\r\n  onSubmit(): void {\r\n    try {\r\n      this.isSubmit = true;\r\n      if (this.registerUserForm?.valid) {\r\n        this.dataChanges.emit({\r\n          nome: this.nome.value,\r\n          email: this.email.value,\r\n          password: this.password.value\r\n        });\r\n        this.feedbackMessage = 'Cadastro realizado com sucesso!';\r\n        return;\r\n      }\r\n\r\n      this.feedbackMessage = 'Preencha o formulário para receber todos os dados!';\r\n      throw new Error(this.feedbackMessage);\r\n\r\n    } catch (error) {\r\n      console.group('FORMULÁRIO DE CADASTRO');\r\n      console.error(error);\r\n      console.log({\r\n        nome: this.nome.value,\r\n        email: this.email.value,\r\n        password: this.password.value\r\n      });\r\n      console.groupEnd();\r\n    }\r\n  }\r\n\r\n  private registerUser(): void {\r\n    this.registerUserForm = this.formBuilder.group({\r\n      nome: [null, [Validators.required, Validators.maxLength(50)]],\r\n      email: [null, [Validators.required, Validators.maxLength(50)]],\r\n      password: [null, [Validators.required, Validators.maxLength(50)]]\r\n    });\r\n  }\r\n\r\n  private resetIsSubmit(): Subscription {\r\n    return this.registerUserForm.valueChanges.subscribe(() => this.isSubmit = false);\r\n  }\r\n\r\n  get nome(): AbstractControl | null {\r\n    return this.registerUserForm?.get('nome') || null;\r\n  }\r\n\r\n  get email(): AbstractControl | null {\r\n    return this.registerUserForm?.get('email') || null;\r\n  }\r\n\r\n  get password(): AbstractControl | null {\r\n    return this.registerUserForm?.get('password') || null;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';\r\nimport { AbstractControl, FormBuilder, Validators } from '@angular/forms';\r\nimport { Subscription } from 'rxjs';\r\nimport { RegisterUserInterface } from './../model/register-user.interface';\r\nimport { ALERT_MESSAGES_CONST } from './model/alert-messages.const';\r\nimport { AlertMessagesInterface } from './model/alert-messages.model';\r\nimport { ValidationTypeEnum } from './model/message-type.enum';\r\n\r\n@Component({\r\n  selector: 'app-register-user',\r\n  templateUrl: './register-user.component.html',\r\n  styleUrls: ['./register-user.component.scss']\r\n})\r\nexport class RegisterUserComponent implements OnInit, OnDestroy {\r\n\r\n  @Input()\r\n  formSize = '100%';\r\n\r\n  @Input()\r\n  labelColor = '#056779';\r\n\r\n  @Input()\r\n  inputBorderColor = '#056779';\r\n\r\n  @Input()\r\n  submitBackgroundColor = '#056779';\r\n\r\n  @Input()\r\n  submitSize = '100px';\r\n\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  dataChanges = new EventEmitter<RegisterUserInterface>();\r\n\r\n  registerUserForm: AbstractControl | null = null;\r\n  isSubmit = false;\r\n  feedbackMessage?: string;\r\n  private subscription = new Subscription();\r\n\r\n  constructor(\r\n    private formBuilder: FormBuilder\r\n  ) { }\r\n\r\n  ngOnInit() {\r\n    this.registerUser();\r\n    this.subscription.add(this.resetIsSubmit());\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.subscription.unsubscribe();\r\n  }\r\n\r\n  /**\r\n   * @description Lorem ipsum dolor sit amet consectetur adipisicing elit.\r\n   * Ipsam rem laudantium id eos iusto porro placeat perferendis totam optio? Ipsa enim, minus facere beatae explicabo vitae aliquam totam doloribus velit!\r\n   * @param inputName\r\n   * @param control\r\n   * @returns\r\n   */\r\n  getAlert(inputName: string, control: AbstractControl): string {\r\n    const ALERT_MESSAGE = ALERT_MESSAGES_CONST.find((data: AlertMessagesInterface) => (\r\n      data.inputName === inputName &&\r\n      control.touched &&\r\n      control?.errors?.hasOwnProperty(ValidationTypeEnum.REQUIRED)\r\n    ));\r\n    return ALERT_MESSAGE?.message || '';\r\n  }\r\n\r\n  onSubmit(): void {\r\n    try {\r\n      this.isSubmit = true;\r\n      if (this.registerUserForm?.valid) {\r\n        this.dataChanges.emit({\r\n          nome: this.nome.value,\r\n          email: this.email.value,\r\n          password: this.password.value\r\n        });\r\n        this.feedbackMessage = 'Cadastro realizado com sucesso!';\r\n        return;\r\n      }\r\n\r\n      this.feedbackMessage = 'Preencha o formulário para receber todos os dados!';\r\n      throw new Error(this.feedbackMessage);\r\n\r\n    } catch (error) {\r\n      console.group('FORMULÁRIO DE CADASTRO');\r\n      console.error(error);\r\n      console.log({\r\n        nome: this.nome.value,\r\n        email: this.email.value,\r\n        password: this.password.value\r\n      });\r\n      console.groupEnd();\r\n    }\r\n  }\r\n\r\n  private registerUser(): void {\r\n    this.registerUserForm = this.formBuilder.group({\r\n      nome: [null, [Validators.required, Validators.maxLength(50)]],\r\n      email: [null, [Validators.required, Validators.maxLength(50)]],\r\n      password: [null, [Validators.required, Validators.maxLength(50)]]\r\n    });\r\n  }\r\n\r\n  private resetIsSubmit(): Subscription {\r\n    return this.registerUserForm.valueChanges.subscribe(() => this.isSubmit = false);\r\n  }\r\n\r\n  get nome(): AbstractControl | null {\r\n    return this.registerUserForm?.get('nome') || null;\r\n  }\r\n\r\n  get email(): AbstractControl | null {\r\n    return this.registerUserForm?.get('email') || null;\r\n  }\r\n\r\n  get password(): AbstractControl | null {\r\n    return this.registerUserForm?.get('password') || null;\r\n  }\r\n\r\n  get styleSubmit(): Object {\r\n    return {\r\n      'width': this.submitSize,\r\n      'background-color': this.submitBackgroundColor\r\n    };\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$primary-color: #056779;\r\n$white-color: #ffffff;\r\n$input-color-text: #616161;\r\n$input-background-color: #eeeeee;\r\n$input-border-radius: 5px;\r\n$input-submit-background-color: #8f8f8f;\r\n$color-active: #04ac5d;\r\n$color-text-alert: #ad0404;\r\n\r\n.input-label {\r\n  margin: {\r\n    top: 20px;\r\n    bottom: 20px;\r\n  }\r\n  font-family: Calibri, Verdana;\r\n\r\n  label {\r\n    display: block;\r\n    font-weight: bold;\r\n    color: $primary-color;\r\n  }\r\n\r\n  input {\r\n    width: 100%;\r\n    height: auto;\r\n    padding: {\r\n      top: 7px;\r\n      right: 5px;\r\n      bottom: 7px;\r\n      left: 5px;\r\n    }\r\n    color: $input-color-text;\r\n    background-color: $input-background-color;\r\n    border: 1px solid $primary-color;\r\n    border-radius: $input-border-radius;\r\n\r\n    &:hover,\r\n    &:focus,\r\n    &:active {\r\n      background-color: $white-color;\r\n      border: 3px solid $color-active;\r\n    }\r\n  }\r\n\r\n  span {\r\n    display: block;\r\n    margin-top: 2px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    color: $color-text-alert;\r\n  }\r\n}\r\n\r\n.input-submit {\r\n  padding: {\r\n    top: 10px;\r\n    right: 15px;\r\n    bottom: 10px;\r\n    left: 15px;\r\n  }\r\n  font-weight: bold;\r\n  color: $white-color;\r\n  background-color: $primary-color;\r\n  border: 1px solid $primary-color;\r\n  border-radius: $input-border-radius;\r\n  cursor: pointer;\r\n\r\n  &:hover {\r\n    background-color: $input-submit-background-color;\r\n  }\r\n\r\n  &:active {\r\n    background-color: $color-active;\r\n  }\r\n}\r\n\r\n.feedback-message {\r\n  display: inline-block;\r\n  margin-left: 20px;\r\n  font-weight: bold;\r\n\r\n  &-error {\r\n    color: $color-text-alert;\r\n  }\r\n\r\n  &-success {\r\n    color: $color-active;\r\n  }\r\n}\r\n",
+                    "data": "$primary-color: #056779;\r\n$white-color: #ffffff;\r\n$input-color-text: #616161;\r\n$input-background-color: #eeeeee;\r\n$input-border-radius: 5px;\r\n$input-submit-background-color: #8f8f8f;\r\n$color-active: #04ac5d;\r\n$color-text-alert: #ad0404;\r\n\r\n.input-label {\r\n  margin: {\r\n    top: 20px;\r\n    bottom: 20px;\r\n  }\r\n  font-family: Calibri, Verdana;\r\n\r\n  label {\r\n    display: block;\r\n    font-weight: bold;\r\n    color: $primary-color;\r\n  }\r\n\r\n  input {\r\n    width: 100%;\r\n    height: auto;\r\n    padding: {\r\n      top: 7px;\r\n      right: 5px;\r\n      bottom: 7px;\r\n      left: 5px;\r\n    }\r\n    color: $input-color-text;\r\n    background-color: $input-background-color;\r\n    border: 1px solid $primary-color;\r\n    border-radius: $input-border-radius;\r\n\r\n    &:hover,\r\n    &:focus,\r\n    &:active {\r\n      background-color: $white-color;\r\n      border: 3px solid $color-active;\r\n    }\r\n  }\r\n\r\n  span {\r\n    display: block;\r\n    margin-top: 2px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    color: $color-text-alert;\r\n  }\r\n}\r\n\r\n.input-submit {\r\n  padding: {\r\n    top: 10px;\r\n    right: 15px;\r\n    bottom: 10px;\r\n    left: 15px;\r\n  }\r\n  font-weight: bold;\r\n  color: $white-color;\r\n  border: 1px solid $primary-color;\r\n  border-radius: $input-border-radius;\r\n  cursor: pointer;\r\n\r\n  &:hover {\r\n    background-color: $input-submit-background-color;\r\n  }\r\n\r\n  &:active {\r\n    background-color: $color-active;\r\n  }\r\n}\r\n\r\n.feedback-message {\r\n  display: inline-block;\r\n  margin-left: 20px;\r\n  font-weight: bold;\r\n\r\n  &-error {\r\n    color: $color-text-alert;\r\n  }\r\n\r\n  &-success {\r\n    color: $color-active;\r\n  }\r\n}\r\n",
                     "styleUrl": "./register-user.component.scss"
                 }
             ],
@@ -546,7 +591,7 @@
                         "type": "FormBuilder"
                     }
                 ],
-                "line": 22,
+                "line": 40,
                 "jsdoctags": [
                     {
                         "name": "formBuilder",
@@ -568,7 +613,7 @@
                         "name": "nome",
                         "type": "",
                         "returnType": "AbstractControl | null",
-                        "line": 86
+                        "line": 111
                     }
                 },
                 "email": {
@@ -577,7 +622,7 @@
                         "name": "email",
                         "type": "",
                         "returnType": "AbstractControl | null",
-                        "line": 90
+                        "line": 115
                     }
                 },
                 "password": {
@@ -586,11 +631,20 @@
                         "name": "password",
                         "type": "",
                         "returnType": "AbstractControl | null",
-                        "line": 94
+                        "line": 119
+                    }
+                },
+                "styleSubmit": {
+                    "name": "styleSubmit",
+                    "getSignature": {
+                        "name": "styleSubmit",
+                        "type": "",
+                        "returnType": "Object",
+                        "line": 123
                     }
                 }
             },
-            "templateData": "<form\r\n  [formGroup]=\"registerUserForm\"\r\n  (ngSubmit)=\"onSubmit()\"\r\n>\r\n  <div class=\"input-label\">\r\n    <label for=\"nome\">\r\n      Nome: *\r\n    </label>\r\n    <input\r\n      id=\"nome\"\r\n      type=\"text\"\r\n      formControlName=\"nome\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('nome', nome) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label for=\"email\">\r\n      E-mail: *\r\n    </label>\r\n    <input\r\n      id=\"email\"\r\n      type=\"text\"\r\n      formControlName=\"email\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('email', email) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label for=\"password\">\r\n      Senha:*\r\n    </label>\r\n    <input\r\n      id=\"password\"\r\n      type=\"password\"\r\n      formControlName=\"password\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('password', password) }}</span>\r\n  </div>\r\n\r\n  <input\r\n    class=\"input-submit\"\r\n    type=\"submit\"\r\n    value=\"Cadastrar\"\r\n  >\r\n  <span\r\n    *ngIf=\"isSubmit\"\r\n    class=\"feedback-message\"\r\n    [class.feedback-message-error]=\"registerUserForm.invalid\"\r\n    [class.feedback-message-success]=\"registerUserForm.valid\"\r\n  >\r\n    {{ feedbackMessage }}\r\n  </span>\r\n</form>\r\n"
+            "templateData": "<form\r\n  [formGroup]=\"registerUserForm\"\r\n  [ngStyle]=\"{ 'width': formSize }\"\r\n  (ngSubmit)=\"onSubmit()\"\r\n>\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"nome\"\r\n    >\r\n      Nome: *\r\n    </label>\r\n    <input\r\n      id=\"nome\"\r\n      type=\"text\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"nome\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('nome', nome) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"email\"\r\n    >\r\n      E-mail: *\r\n    </label>\r\n    <input\r\n      id=\"email\"\r\n      type=\"text\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"email\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('email', email) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"password\"\r\n    >\r\n      Senha:*\r\n    </label>\r\n    <input\r\n      id=\"password\"\r\n      type=\"password\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"password\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('password', password) }}</span>\r\n  </div>\r\n\r\n  <input\r\n    class=\"input-submit\"\r\n    [ngStyle]=\"styleSubmit\"\r\n    type=\"submit\"\r\n    value=\"Cadastrar\"\r\n  >\r\n\r\n  <span\r\n    *ngIf=\"isSubmit\"\r\n    class=\"feedback-message\"\r\n    [class.feedback-message-error]=\"registerUserForm.invalid\"\r\n    [class.feedback-message-success]=\"registerUserForm.valid\"\r\n  >\r\n    {{ feedbackMessage }}\r\n  </span>\r\n</form>\r\n"
         }
     ],
     "modules": [
@@ -756,10 +810,18 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/register-user-02.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "REGISTER_USER",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/register-user/register-user.stories.ts",
+                "file": "src/app/register-user/register-user-01.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: RegisterUserComponent,\r\n  props: {\r\n    label: 'Button',\r\n  },\r\n})"
             },
@@ -790,9 +852,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -806,9 +868,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "src/stories/Page.stories.ts",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/register-user-02.stories.ts",
+                "type": "Story<RegisterUserComponent>",
+                "defaultValue": "(args) => ({\r\n  component: RegisterUserComponent,\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -974,12 +1044,30 @@
                     "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
                 }
             ],
-            "src/app/register-user/register-user.stories.ts": [
+            "src/app/register-user/register-user-02.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/register-user-02.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/register-user-02.stories.ts",
+                    "type": "Story<RegisterUserComponent>",
+                    "defaultValue": "(args) => ({\r\n  component: RegisterUserComponent,\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/register-user/register-user-01.stories.ts": [
                 {
                     "name": "REGISTER_USER",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/register-user/register-user.stories.ts",
+                    "file": "src/app/register-user/register-user-01.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: RegisterUserComponent,\r\n  props: {\r\n    label: 'Button',\r\n  },\r\n})"
                 }
@@ -1061,22 +1149,42 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/register-user/register-user.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "RegisterUserComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/13",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/register-user/register-user.stories.ts",
+                "filePath": "src/app/register-user/register-user-01.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "REGISTER_USER",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user-02.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user-02.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterUserComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
