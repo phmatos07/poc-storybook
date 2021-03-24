@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RegisterUserInterface } from './../model/register-user.interface';
@@ -12,6 +12,21 @@ import { ValidationTypeEnum } from './model/message-type.enum';
   styleUrls: ['./register-user.component.scss']
 })
 export class RegisterUserComponent implements OnInit, OnDestroy {
+
+  @Input()
+  formSize = '100%';
+
+  @Input()
+  labelColor = '#056779';
+
+  @Input()
+  inputBorderColor = '#056779';
+
+  @Input()
+  submitBackgroundColor = '#056779';
+
+  @Input()
+  submitSize = '100px';
 
   @Output()
   dataChanges = new EventEmitter<RegisterUserInterface>();
@@ -93,5 +108,12 @@ export class RegisterUserComponent implements OnInit, OnDestroy {
 
   get password(): AbstractControl | null {
     return this.registerUserForm?.get('password') || null;
+  }
+
+  get styleSubmit(): { 'width': string; 'background-color': string } {
+    return {
+      'width': this.submitSize,
+      'background-color': this.submitBackgroundColor
+    };
   }
 }
