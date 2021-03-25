@@ -26,7 +26,7 @@ export class RegisterUserComponent implements OnInit, OnDestroy {
   submitBackgroundColor = '#056779';
 
   @Input()
-  submitSize = '100px';
+  submitSize = '10';
 
   @Output()
   dataChanges = new EventEmitter<RegisterUserInterface>();
@@ -112,7 +112,7 @@ export class RegisterUserComponent implements OnInit, OnDestroy {
 
   get styleSubmit(): { 'width': string; 'background-color': string } {
     return {
-      'width': this.submitSize,
+      'width': `${this.submitSize}%`,
       'background-color': this.submitBackgroundColor
     };
   }
