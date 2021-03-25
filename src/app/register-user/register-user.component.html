@@ -1,0 +1,75 @@
+<form
+  [formGroup]="registerUserForm"
+  [ngStyle]="{ 'width': formSize }"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="input-label">
+    <label
+      [ngStyle]="{ 'color': labelColor}"
+      for="nome"
+    >
+      Nome: *
+    </label>
+    <input
+      id="nome"
+      type="text"
+      [ngStyle]="{ 'border-color': inputBorderColor}"
+      formControlName="nome"
+      maxlength="50"
+      required
+    >
+    <span class="alert">{{ getAlert('nome', nome) }}</span>
+  </div>
+
+  <div class="input-label">
+    <label
+      [ngStyle]="{ 'color': labelColor}"
+      for="email"
+    >
+      E-mail: *
+    </label>
+    <input
+      id="email"
+      type="text"
+      [ngStyle]="{ 'border-color': inputBorderColor}"
+      formControlName="email"
+      maxlength="50"
+      required
+    >
+    <span class="alert">{{ getAlert('email', email) }}</span>
+  </div>
+
+  <div class="input-label">
+    <label
+      [ngStyle]="{ 'color': labelColor}"
+      for="password"
+    >
+      Senha:*
+    </label>
+    <input
+      id="password"
+      type="password"
+      [ngStyle]="{ 'border-color': inputBorderColor}"
+      formControlName="password"
+      maxlength="50"
+      required
+    >
+    <span class="alert">{{ getAlert('password', password) }}</span>
+  </div>
+
+  <input
+    class="input-submit"
+    [ngStyle]="styleSubmit"
+    type="submit"
+    value="Cadastrar"
+  >
+
+  <span
+    *ngIf="isSubmit"
+    class="feedback-message"
+    [class.feedback-message-error]="registerUserForm.invalid"
+    [class.feedback-message-success]="registerUserForm.valid"
+  >
+    {{ feedbackMessage }}
+  </span>
+</form>

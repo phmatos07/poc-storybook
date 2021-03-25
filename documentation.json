@@ -1,0 +1,811 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "AlertMessagesInterface",
+            "id": "interface-AlertMessagesInterface-e90371aae2a61f42ea075f369f8743b0",
+            "file": "src/app/register-user/model/alert-messages.model.ts",
+            "type": "interface",
+            "sourceCode": "import { ValidationTypeEnum } from './message-type.enum';\r\n\r\nexport interface AlertMessagesInterface {\r\n  validationType: ValidationTypeEnum;\r\n  inputName: string;\r\n  message: string;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "inputName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "message",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "validationType",
+                    "type": "ValidationTypeEnum",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        },
+        {
+            "name": "RegisterUserInterface",
+            "id": "interface-RegisterUserInterface-5f29f40d0203e5dddc8e6f7a11208c00",
+            "file": "src/app/model/register-user.interface.ts",
+            "type": "interface",
+            "sourceCode": "export interface RegisterUserInterface {\r\n  nome: string;\r\n  email: string;\r\n  password: string;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "nome",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "password",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
+    "injectables": [],
+    "classes": [
+        {
+            "name": "AppPage",
+            "id": "class-AppPage-a0db91bfa3b9914e9048612074084ee6",
+            "file": "e2e/src/app.po.ts",
+            "type": "class",
+            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl) as Promise<unknown>;\n  }\n\n  getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText() as Promise<string>;\n  }\n}\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getTitleText",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 8
+                },
+                {
+                    "name": "navigateTo",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<unknown>",
+                    "typeParameters": [],
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-9858f670bb55f03b7715803f403b6994",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "registerUser",
+                    "defaultValue": "null",
+                    "type": "RegisterUserInterface | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'POC-Storybook - Formulário de Cadastro'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RegisterUserInterface } from './model/register-user.interface';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'POC-Storybook - Formulário de Cadastro';\r\n  registerUser: RegisterUserInterface | null = null;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$primary-color: #056779;\r\n$ul-background-color: #e4e4e4;\r\n\r\nsection {\r\n  display: block;\r\n  padding: {\r\n    right: 20px;\r\n    left: 20px;\r\n  };\r\n  font-family: Calibri, Verdana;\r\n}\r\n\r\nh1 {\r\n  color: $primary-color;\r\n}\r\n\r\nul {\r\n  display: block;\r\n  width: 50%;\r\n  height: auto;\r\n  margin-top: 20px;\r\n  padding: 20px;\r\n  color: $primary-color;\r\n  background-color: $ul-background-color;\r\n  border: 1px solid $primary-color;\r\n  border-radius: 5px;\r\n\r\n  li {\r\n    margin-left: 10px;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<section>\n  <h1>{{ title }}</h1>\n\n  <app-register-user (dataChanges)=\"registerUser = $event\"></app-register-user>\n\n  <ul *ngIf=\"registerUser\">\n    <li><strong>Nome: </strong>{{ registerUser?.nome }}</li>\n    <li><strong>E-mail: </strong>{{ registerUser?.email }}</li>\n    <li><strong>password: </strong>{{ registerUser?.password }}</li>\n  </ul>\n\n</section>\n"
+        },
+        {
+            "name": "RegisterUserComponent",
+            "id": "component-RegisterUserComponent-b88dec8f740bc00628b3a6347e8f8146",
+            "file": "src/app/register-user/register-user.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-register-user",
+            "styleUrls": [
+                "./register-user.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./register-user.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "formSize",
+                    "defaultValue": "'100%'",
+                    "line": 17
+                },
+                {
+                    "name": "inputBorderColor",
+                    "defaultValue": "'#056779'",
+                    "line": 23
+                },
+                {
+                    "name": "labelColor",
+                    "defaultValue": "'#056779'",
+                    "line": 20
+                },
+                {
+                    "name": "submitBackgroundColor",
+                    "defaultValue": "'#056779'",
+                    "line": 26
+                },
+                {
+                    "name": "submitSize",
+                    "defaultValue": "'10'",
+                    "line": 29
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "dataChanges",
+                    "defaultValue": "new EventEmitter<RegisterUserInterface>()",
+                    "line": 32,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "feedbackMessage",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 36
+                },
+                {
+                    "name": "isSubmit",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "registerUserForm",
+                    "defaultValue": "null",
+                    "type": "AbstractControl | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "subscription",
+                    "defaultValue": "new Subscription()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 37,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "getAlert",
+                    "args": [
+                        {
+                            "name": "inputName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "control",
+                            "type": "AbstractControl"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 52,
+                    "jsdoctags": [
+                        {
+                            "name": "inputName",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "control",
+                            "type": "AbstractControl",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 61
+                },
+                {
+                    "name": "registerUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 89,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "resetIsSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Subscription",
+                    "typeParameters": [],
+                    "line": 97,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';\r\nimport { AbstractControl, FormBuilder, Validators } from '@angular/forms';\r\nimport { Subscription } from 'rxjs';\r\nimport { RegisterUserInterface } from './../model/register-user.interface';\r\nimport { ALERT_MESSAGES_CONST } from './model/alert-messages.const';\r\nimport { AlertMessagesInterface } from './model/alert-messages.model';\r\nimport { ValidationTypeEnum } from './model/message-type.enum';\r\n\r\n@Component({\r\n  selector: 'app-register-user',\r\n  templateUrl: './register-user.component.html',\r\n  styleUrls: ['./register-user.component.scss']\r\n})\r\nexport class RegisterUserComponent implements OnInit, OnDestroy {\r\n\r\n  @Input()\r\n  formSize = '100%';\r\n\r\n  @Input()\r\n  labelColor = '#056779';\r\n\r\n  @Input()\r\n  inputBorderColor = '#056779';\r\n\r\n  @Input()\r\n  submitBackgroundColor = '#056779';\r\n\r\n  @Input()\r\n  submitSize = '10';\r\n\r\n  @Output()\r\n  dataChanges = new EventEmitter<RegisterUserInterface>();\r\n\r\n  registerUserForm: AbstractControl | null = null;\r\n  isSubmit = false;\r\n  feedbackMessage?: string;\r\n  private subscription = new Subscription();\r\n\r\n  constructor(\r\n    private formBuilder: FormBuilder\r\n  ) { }\r\n\r\n  ngOnInit() {\r\n    this.registerUser();\r\n    this.subscription.add(this.resetIsSubmit());\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.subscription.unsubscribe();\r\n  }\r\n\r\n  getAlert(inputName: string, control: AbstractControl): string {\r\n    const ALERT_MESSAGE = ALERT_MESSAGES_CONST.find((data: AlertMessagesInterface) => (\r\n      data.inputName === inputName &&\r\n      control.touched &&\r\n      control?.errors?.hasOwnProperty(ValidationTypeEnum.REQUIRED)\r\n    ));\r\n    return ALERT_MESSAGE?.message || '';\r\n  }\r\n\r\n  onSubmit(): void {\r\n    try {\r\n      this.isSubmit = true;\r\n      if (this.registerUserForm?.valid) {\r\n        this.dataChanges.emit({\r\n          nome: this.nome.value,\r\n          email: this.email.value,\r\n          password: this.password.value\r\n        });\r\n        this.feedbackMessage = 'Cadastro realizado com sucesso!';\r\n        return;\r\n      }\r\n\r\n      this.feedbackMessage = 'Preencha o formulário para receber todos os dados!';\r\n      throw new Error(this.feedbackMessage);\r\n\r\n    } catch (error) {\r\n      console.group('FORMULÁRIO DE CADASTRO');\r\n      console.error(error);\r\n      console.log({\r\n        nome: this.nome.value,\r\n        email: this.email.value,\r\n        password: this.password.value\r\n      });\r\n      console.groupEnd();\r\n    }\r\n  }\r\n\r\n  private registerUser(): void {\r\n    this.registerUserForm = this.formBuilder.group({\r\n      nome: [null, [Validators.required, Validators.maxLength(50)]],\r\n      email: [null, [Validators.required, Validators.maxLength(50)]],\r\n      password: [null, [Validators.required, Validators.maxLength(50)]]\r\n    });\r\n  }\r\n\r\n  private resetIsSubmit(): Subscription {\r\n    return this.registerUserForm.valueChanges.subscribe(() => this.isSubmit = false);\r\n  }\r\n\r\n  get nome(): AbstractControl | null {\r\n    return this.registerUserForm?.get('nome') || null;\r\n  }\r\n\r\n  get email(): AbstractControl | null {\r\n    return this.registerUserForm?.get('email') || null;\r\n  }\r\n\r\n  get password(): AbstractControl | null {\r\n    return this.registerUserForm?.get('password') || null;\r\n  }\r\n\r\n  get styleSubmit(): { 'width': string; 'background-color': string } {\r\n    return {\r\n      'width': `${this.submitSize}%`,\r\n      'background-color': this.submitBackgroundColor\r\n    };\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$primary-color: #056779;\r\n$white-color: #ffffff;\r\n$input-color-text: #616161;\r\n$input-background-color: #eeeeee;\r\n$input-border-radius: 5px;\r\n$input-submit-background-color: #8f8f8f;\r\n$color-active: #04ac5d;\r\n$color-text-alert: #ad0404;\r\n\r\n.input-label {\r\n  margin: {\r\n    top: 20px;\r\n    bottom: 20px;\r\n  }\r\n  font-family: Calibri, Verdana;\r\n\r\n  label {\r\n    display: block;\r\n    font-weight: bold;\r\n    color: $primary-color;\r\n  }\r\n\r\n  input {\r\n    width: 100%;\r\n    height: auto;\r\n    padding: {\r\n      top: 7px;\r\n      right: 5px;\r\n      bottom: 7px;\r\n      left: 5px;\r\n    }\r\n    color: $input-color-text;\r\n    background-color: $input-background-color;\r\n    border: 1px solid $primary-color;\r\n    border-radius: $input-border-radius;\r\n\r\n    &:hover,\r\n    &:focus,\r\n    &:active {\r\n      background-color: $white-color;\r\n      border: 3px solid $color-active;\r\n    }\r\n  }\r\n\r\n  span {\r\n    display: block;\r\n    margin-top: 2px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    color: $color-text-alert;\r\n  }\r\n}\r\n\r\n.input-submit {\r\n  padding: {\r\n    top: 10px;\r\n    right: 15px;\r\n    bottom: 10px;\r\n    left: 15px;\r\n  }\r\n  font-weight: bold;\r\n  color: $white-color;\r\n  border: 1px solid $primary-color;\r\n  border-radius: $input-border-radius;\r\n  cursor: pointer;\r\n\r\n  &:hover {\r\n    background-color: $input-submit-background-color;\r\n  }\r\n\r\n  &:active {\r\n    background-color: $color-active;\r\n  }\r\n}\r\n\r\n.feedback-message {\r\n  display: inline-block;\r\n  margin-left: 20px;\r\n  font-weight: bold;\r\n\r\n  &-error {\r\n    color: $color-text-alert;\r\n  }\r\n\r\n  &-success {\r\n    color: $color-active;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./register-user.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder"
+                    }
+                ],
+                "line": 37,
+                "jsdoctags": [
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "accessors": {
+                "nome": {
+                    "name": "nome",
+                    "getSignature": {
+                        "name": "nome",
+                        "type": "",
+                        "returnType": "AbstractControl | null",
+                        "line": 101
+                    }
+                },
+                "email": {
+                    "name": "email",
+                    "getSignature": {
+                        "name": "email",
+                        "type": "",
+                        "returnType": "AbstractControl | null",
+                        "line": 105
+                    }
+                },
+                "password": {
+                    "name": "password",
+                    "getSignature": {
+                        "name": "password",
+                        "type": "",
+                        "returnType": "AbstractControl | null",
+                        "line": 109
+                    }
+                },
+                "styleSubmit": {
+                    "name": "styleSubmit",
+                    "getSignature": {
+                        "name": "styleSubmit",
+                        "type": "literal type",
+                        "returnType": "literal type",
+                        "line": 113
+                    }
+                }
+            },
+            "templateData": "<form\r\n  [formGroup]=\"registerUserForm\"\r\n  [ngStyle]=\"{ 'width': formSize }\"\r\n  (ngSubmit)=\"onSubmit()\"\r\n>\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"nome\"\r\n    >\r\n      Nome: *\r\n    </label>\r\n    <input\r\n      id=\"nome\"\r\n      type=\"text\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"nome\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('nome', nome) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"email\"\r\n    >\r\n      E-mail: *\r\n    </label>\r\n    <input\r\n      id=\"email\"\r\n      type=\"text\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"email\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('email', email) }}</span>\r\n  </div>\r\n\r\n  <div class=\"input-label\">\r\n    <label\r\n      [ngStyle]=\"{ 'color': labelColor}\"\r\n      for=\"password\"\r\n    >\r\n      Senha:*\r\n    </label>\r\n    <input\r\n      id=\"password\"\r\n      type=\"password\"\r\n      [ngStyle]=\"{ 'border-color': inputBorderColor}\"\r\n      formControlName=\"password\"\r\n      maxlength=\"50\"\r\n      required\r\n    >\r\n    <span class=\"alert\">{{ getAlert('password', password) }}</span>\r\n  </div>\r\n\r\n  <input\r\n    class=\"input-submit\"\r\n    [ngStyle]=\"styleSubmit\"\r\n    type=\"submit\"\r\n    value=\"Cadastrar\"\r\n  >\r\n\r\n  <span\r\n    *ngIf=\"isSubmit\"\r\n    class=\"feedback-message\"\r\n    [class.feedback-message-error]=\"registerUserForm.invalid\"\r\n    [class.feedback-message-success]=\"registerUserForm.valid\"\r\n  >\r\n    {{ feedbackMessage }}\r\n  </span>\r\n</form>\r\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "RegisterUserModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "RegisterUserModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "RegisterUserComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "RegisterUserComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "ALERT_MESSAGES_CONST",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/model/alert-messages.const.ts",
+                "type": "Array<AlertMessagesInterface>",
+                "defaultValue": "[\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'nome',\r\n    message: 'Por favor, digite seu nome completo.'\r\n  },\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'email',\r\n    message: 'Por favor, digite seu e-mail.'\r\n  },\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'password',\r\n    message: 'Por favor, digite uma senha.'\r\n  }\r\n]"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "PRIMARY",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/register-user-02.stories.ts",
+                "type": "",
+                "defaultValue": "TEMPLATE.bind({})"
+            },
+            {
+                "name": "REGISTER_USER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/register-user-01.stories.ts",
+                "type": "",
+                "defaultValue": "() => ({\r\n  component: RegisterUserComponent,\r\n  props: {\r\n    label: 'Button',\r\n  },\r\n})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "type": "literal type"
+            },
+            {
+                "name": "TEMPLATE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/register-user/register-user-02.stories.ts",
+                "type": "Story<RegisterUserComponent>",
+                "defaultValue": "(args) => ({\r\n  component: RegisterUserComponent,\r\n  props: args,\r\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "ValidationTypeEnum",
+                "childs": [
+                    {
+                        "name": "REQUIRED",
+                        "value": "required"
+                    },
+                    {
+                        "name": "MAXLENGTH",
+                        "value": "maxlength"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "description": "",
+                "file": "src/app/register-user/model/message-type.enum.ts"
+            }
+        ],
+        "groupedVariables": {
+            "src/app/register-user/model/alert-messages.const.ts": [
+                {
+                    "name": "ALERT_MESSAGES_CONST",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/model/alert-messages.const.ts",
+                    "type": "Array<AlertMessagesInterface>",
+                    "defaultValue": "[\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'nome',\r\n    message: 'Por favor, digite seu nome completo.'\r\n  },\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'email',\r\n    message: 'Por favor, digite seu e-mail.'\r\n  },\r\n  {\r\n    validationType: ValidationTypeEnum.REQUIRED,\r\n    inputName: 'password',\r\n    message: 'Por favor, digite uma senha.'\r\n  }\r\n]"
+                }
+            ],
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "literal type"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/app/register-user/register-user-02.stories.ts": [
+                {
+                    "name": "PRIMARY",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/register-user-02.stories.ts",
+                    "type": "",
+                    "defaultValue": "TEMPLATE.bind({})"
+                },
+                {
+                    "name": "TEMPLATE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/register-user-02.stories.ts",
+                    "type": "Story<RegisterUserComponent>",
+                    "defaultValue": "(args) => ({\r\n  component: RegisterUserComponent,\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/register-user/register-user-01.stories.ts": [
+                {
+                    "name": "REGISTER_USER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/register-user/register-user-01.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => ({\r\n  component: RegisterUserComponent,\r\n  props: {\r\n    label: 'Button',\r\n  },\r\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {
+            "src/app/register-user/model/message-type.enum.ts": [
+                {
+                    "name": "ValidationTypeEnum",
+                    "childs": [
+                        {
+                            "name": "REQUIRED",
+                            "value": "required"
+                        },
+                        {
+                            "name": "MAXLENGTH",
+                            "value": "maxlength"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "description": "",
+                    "file": "src/app/register-user/model/message-type.enum.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "e2e/src/app.po.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "AppPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/model/register-user.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "RegisterUserInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/model/alert-messages.const.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ALERT_MESSAGES_CONST",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/model/alert-messages.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "AlertMessagesInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user-01.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "REGISTER_USER",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user-02.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PRIMARY",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user-02.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TEMPLATE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/register-user/register-user.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterUserComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/18",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

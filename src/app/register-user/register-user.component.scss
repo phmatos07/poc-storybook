@@ -1,0 +1,88 @@
+$primary-color: #056779;
+$white-color: #ffffff;
+$input-color-text: #616161;
+$input-background-color: #eeeeee;
+$input-border-radius: 5px;
+$input-submit-background-color: #8f8f8f;
+$color-active: #04ac5d;
+$color-text-alert: #ad0404;
+
+.input-label {
+  margin: {
+    top: 20px;
+    bottom: 20px;
+  }
+  font-family: Calibri, Verdana;
+
+  label {
+    display: block;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  input {
+    width: 100%;
+    height: auto;
+    padding: {
+      top: 7px;
+      right: 5px;
+      bottom: 7px;
+      left: 5px;
+    }
+    color: $input-color-text;
+    background-color: $input-background-color;
+    border: 1px solid $primary-color;
+    border-radius: $input-border-radius;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $white-color;
+      border: 3px solid $color-active;
+    }
+  }
+
+  span {
+    display: block;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-text-alert;
+  }
+}
+
+.input-submit {
+  padding: {
+    top: 10px;
+    right: 15px;
+    bottom: 10px;
+    left: 15px;
+  }
+  font-weight: bold;
+  color: $white-color;
+  border: 1px solid $primary-color;
+  border-radius: $input-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $input-submit-background-color;
+  }
+
+  &:active {
+    background-color: $color-active;
+  }
+}
+
+.feedback-message {
+  display: inline-block;
+  margin-left: 20px;
+  font-weight: bold;
+
+  &-error {
+    color: $color-text-alert;
+  }
+
+  &-success {
+    color: $color-active;
+  }
+}

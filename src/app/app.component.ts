@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RegisterUserInterface } from './model/register-user.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'poc-storybook';
+  title = 'POC-Storybook - Formulário de Cadastro';
+  registerUser: RegisterUserInterface | null = null;
 }
